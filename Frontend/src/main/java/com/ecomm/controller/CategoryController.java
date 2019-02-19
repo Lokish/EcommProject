@@ -59,10 +59,6 @@ public class CategoryController
 	public String editCategory(@PathVariable("categoryId")int categoryId,Model m)
 	{
 		Category category=categoryDAO.getCategory(categoryId);
-		
-		
-	//	List<Category> listCategories=categoryDAO.listCategories();
-		//m.addAttribute("categoryList", listCategories);
 		m.addAttribute(category);
 		return "updatecategory";
 	}
@@ -75,7 +71,7 @@ public class CategoryController
 		 category.setCategoryDesc(categoryDesc);
 		 categoryDAO.updateCategory(category);
 		 List<Category> listCategories=categoryDAO.listCategories();
-		 m.addAttribute("listCategories",listCategories);
+		 m.addAttribute("categoryList",listCategories);
 		 return "category";
 	 }
 	
