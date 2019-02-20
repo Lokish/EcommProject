@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ecomm.model.Category;
 import com.ecomm.model.Product;
 @Repository("productDAO")
 @Transactional
@@ -62,14 +63,13 @@ public class ProductDAOImpl implements ProductDAO
 	
 
 
-	public List<Product> listProduts()
+	public List<Product> listProducts() 
 	{
 		Session session=sessionFactory.openSession();
 		List<Product> listProducts=(List<Product>)session.createQuery("from Product").list();
 		session.close();
 		return listProducts;
-		 	
-	} 
+	}
 	
 	
 	

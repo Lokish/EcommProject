@@ -74,7 +74,7 @@ public class ProductDAOUnitTest
 	@Test
 	public void listProductTest()
 	{
-		List<Product> listProducts=productDAO.listProduts();
+		List<Product> listProducts=productDAO.listProducts();
 		assertNotNull("No Categories",listProducts);
 		
 		for(Product product:listProducts)
