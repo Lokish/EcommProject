@@ -27,7 +27,8 @@ public class ProductController
  
  @Autowired
  ProductDAO productDAO;
- 
+
+
  @RequestMapping("/product")
  public String showProduct(Model m)
  {
@@ -49,8 +50,38 @@ public String insertProduct(@ModelAttribute("product")Product product,Model m)
 	m.addAttribute("productList",listProducts);
 	
 	  return "product";
+	  
 
 }
+@RequestMapping(value="/deleteProduct/{productId}")
+public String deleteProduct(@PathVariable("productId")int productId,Model m)
+{
+	Product product=productDAO.getProduct(productId);
+	productDAO.deleteProduct(product);
+	List<Product> listProducts=productDAO.listProducts();
+	m.addAttribute("productList",listProducts);
+	return "product";
+}
+
+@RequestMapping(value="/editProduct/{productId}")
+public String editCategory(@PathVariable("productId")int productId,Model m)
+{
+	Product product1=productDAO.getProduct(productId);
+	m.addAttribute(product1);
+	return "updateproduct";
+}
+@RequestMapping(value="/UpdateProduct",method=RequestMethod.POST)
+ public String updateCategory(Model m,@RequestParam("proId")int productId,@RequestParam("proName")String productName,@RequestParam("proDesc")String productDesc)
+ {
+	Product product=productDAO.getProduct(productId);
+	product.setProductName(productName);
+	product.setProductDesc(productDesc);
+	 productDAO.updateProduct(product);
+	 List<Product> listProducts=productDAO.listProducts();
+		m.addAttribute("productList",listProducts);
+	 return "product";
+ }
+
 public LinkedHashMap<Integer,String> GetCategories()
 {
 	List<Category> listCategories=categoryDAO.listCategories();
@@ -63,8 +94,8 @@ public LinkedHashMap<Integer,String> GetCategories()
 }
 
  
+} 
  
- 
-}
+
 
 

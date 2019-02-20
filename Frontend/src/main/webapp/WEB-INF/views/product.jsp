@@ -40,8 +40,43 @@
     <td><form:input path="productDesc"/></td>
 </tr>
 <tr>
-    <td colspan="2"><center><input type="submit" value="InsertProduct"/></center></td>
+    <td colspan="2"><center><input type="submit" value="SaveProduct"/></center></td>
 </tr>
+
+<table align="center" border="2">
+				<tr>
+					<td>Product Id</td>
+					<td> Product Name</td>
+					<td>Product Desc</td>
+					
+					<td> CategoryId</td>
+					<td>Price</td>
+					<td>Stock</td>
+					<td>SuplierId</td>
+					<td>Operation</td>
+				</tr>
+				<c:forEach items="${productList}" var="product">
+					<tr>
+						<td>${product.productid}</td>
+						
+						<td>${product.productName}</td>
+						<td>${product.productDesc}</td>
+						<td>${product.categoryId}</td>
+						<td>${product.price}</td>
+						<td>${product.stock}</td>
+						<td>${product.supplierId }</td>
+					<td>
+						
+						
+						<a href="<c:url value="/editProduct/${product.productid}"/>"> Edit</a>
+							<a href="<c:url value="/deleteProduct/${product.productid}"/>"> Delete</a>
+						</td>
+					</tr>
+				</c:forEach>
+	
+			</table>
+			
+			</form>
 
 </table>
 </form:form>

@@ -55,10 +55,8 @@ public class Product
 	@Id
 	@GeneratedValue
 	int productid;
-	
 	String productName;
 	String productDesc;
-	
 	int price;
 	int stock;
 	int categoryId;
