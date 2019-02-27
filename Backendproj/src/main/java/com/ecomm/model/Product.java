@@ -6,19 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 @Entity
 @Table
-
-
 public class Product 
 {
-
-	public int getProductid() {
-		return productid;
+	public int getProductId() {
+		return productId;
 	}
-	public void setProductid(int productid) {
-		this.productid = productid;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	public String getProductName() {
 		return productName;
@@ -56,23 +52,17 @@ public class Product
 	public void setSupplierId(int supplierId) {
 		this.supplierId = supplierId;
 	}
-	
-	public MultipartFile getPimage() {
-		return pimage;
-	}
-	public void setPimage(MultipartFile pimage) {
-		this.pimage = pimage;
-	}
 	@Id
 	@GeneratedValue
-     @Transient
- 	MultipartFile pimage;
-	int productid;
+	int productId;
 	String productName;
 	String productDesc;
 	int price;
 	int stock;
 	int categoryId;
 	int supplierId;
+
+	
+
 	
 }

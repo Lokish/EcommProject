@@ -5,6 +5,8 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <br/><br/>
+<form:form action="InsertProduct" modelAttribute="product" method="post" enctype="multipart/form-data">
+</form:form>
 <form:form action="InsertProduct" modelAttribute="product" method="post">
 <table align="center" class="table-bordered">
 <tr>

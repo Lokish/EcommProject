@@ -1,5 +1,7 @@
 package com.ecomm.controller;
 
+
+import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -13,11 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ecomm.dao.CategoryDAO;
 import com.ecomm.dao.ProductDAO;
 import com.ecomm.model.Category;
 import com.ecomm.model.Product;
+
 
 @Controller
 public class ProductController 
@@ -48,6 +52,8 @@ public String insertProduct(@ModelAttribute("product")Product product,Model m)
 	m.addAttribute("categoryList", this.GetCategories());
 	List<Product> listProducts=productDAO.listProducts();
 	m.addAttribute("productList",listProducts);
+	
+	
 	
 	  return "product";
 	  
