@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="frontendproj">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/" source-path="/src"/>
+        <dependent-module archiveName="Backendproj-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Backendproj/Backendproj">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="frontendproj"/>
+        <property name="java-output-path" value="/frontendproj/target/classes"/>
+    </wb-module>
+</project-modules>
